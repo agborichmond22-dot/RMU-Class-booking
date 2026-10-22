@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classroom Booking</title>
+  <link rel="stylesheet" href="Classroom_Booking.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <!-- Replace with your logo -->
+      <img class="logo" src="https://placehold.co/100x100/1769e0/ffffff?text=CB" alt="Logo">
+      <h1> RMU Classroom Booking</h1>
+    </div>
+    <button id="openAuthors" class="authors-button">Authors</button>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Find your lecture room</h2>
+      <p>View available classrooms and reserve a room when you need one.</p>
+      <div class="connection-status">
+        <span id="statusDot" class="status-dot"></span>
+        <span id="connectionText">Connecting to database...</span>
+      </div>
+    </section>
+
+    <div class="sections">
+      <section class="room-section">
+        <div class="section-heading">
+          <h3>Available Classes</h3>
+          <span class="count" id="availableCount">0 rooms</span>
+        </div>
+        <div class="room-list" id="availableRooms">
+          <p class="empty-message">Loading classrooms...</p>
+        </div>
+      </section>
+
+      <section class="room-section booked-section">
+        <div class="section-heading">
+          <h3>Booked / Unavailable Classes</h3>
+          <span class="count" id="bookedCount">0 rooms</span>
+        </div>
+        <div class="room-list" id="bookedRooms">
+          <p class="empty-message">Loading classrooms...</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>Classroom Booking &copy; <span id="currentYear"></span></footer>
+
+  <!-- Authors popup -->
+  <div class="modal-overlay" id="authorsModal" hidden role="dialog" aria-modal="true">
+    <div class="modal">
+      <div class="modal-header">
+        <h2>Meet the Authors</h2>
+        <button class="close-button" id="closeAuthors" aria-label="Close">&times;</button>
+      </div>
+      <div class="authors-grid" id="authorsGrid"></div>
+    </div>
+  </div>
+
+  <!-- Booking confirmation popup -->
+  <div class="modal-overlay" id="bookingModal" hidden role="dialog" aria-modal="true">
+    <div class="modal confirmation-modal">
+      <div class="modal-header">
+        <h2>Confirm Booking</h2>
+        <button class="close-button" id="closeBooking" aria-label="Close">&times;</button>
+      </div>
+      <p id="bookingMessage">Do you want to book this room?</p>
+      <div class="confirmation-actions">
+        <button class="cancel-button" id="rejectBooking">Cancel</button>
+        <button class="book-button" id="confirmBooking">Confirm Booking</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+
+  <!-- Your JavaScript -->
+  <script src="Classroom_Booking.js"></script>
+</body>
+</html>
